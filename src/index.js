@@ -1,8 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { initializeApp } from 'firebase/app';
+
+const REACT_APP_FIREBASE_APP_ID = process.env.REACT_APP_FIREBASE_APP_ID
+const REACT_APP_FIREBASE_API_KEY = process.env.REACT_APP_FIREBASE_API_KEY
+const REACT_APP_FIREBASE_DATABASE_URL = process.env.REACT_APP_FIREBASE_DATABASE_URL
+
+const firebaseConfig = {
+  apiKey: REACT_APP_FIREBASE_API_KEY,
+  authDomain: "padawans107-frontend-shop.firebaseapp.com",
+  projectId: "padawans107-frontend-shop",
+  storageBucket: "padawans107-frontend-shop.appspot.com",
+  messagingSenderId: "20721830109",
+  appId: REACT_APP_FIREBASE_APP_ID,
+  databaseURL: REACT_APP_FIREBASE_DATABASE_URL
+};
+
+initializeApp(firebaseConfig)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -10,8 +25,3 @@ root.render(
     <App />
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
